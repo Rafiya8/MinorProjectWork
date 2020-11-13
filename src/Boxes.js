@@ -18,54 +18,58 @@ const handleClick = () => {
     {Name: "LINUX", Description: "Coding", TimeSlot: "2:45 - 3:45", TeacherName: 'Gaurav Nayak'}
   ]
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor: '#101820ff'}}>
     {
       data.map((ele, i) => (
         <View style={{height: 180}} key={i}>
-        <Text style={{lineHeight: 40, color: 'red'}}>Name Of Class: {ele.Name}</Text>
-        <Text style={{lineHeight: 40}}>Description of Lecture: {ele.Description}</Text>
-        <Text style={{lineHeight: 40}}>Time slot for this Lecture: {ele.TimeSlot}</Text>
-        <Text style={{lineHeight: 40}}>Teacher's Name: {ele.TeacherName}</Text>
+        <Text style={{lineHeight: 40, color: 'white'}}>Name Of Class:        {ele.Name}</Text>
+        <Text style={{lineHeight: 40, color: '#f2aa4cff'}}>Description of Lecture:       {ele.Description}</Text>
+        <Text style={{lineHeight: 40, color: '#f2aa4cff'}}>Time slot for this Lecture:       {ele.TimeSlot}</Text>
+        <Text style={{lineHeight: 40, color: '#f2aa4cff'}}>Teacher's Name:      {ele.TeacherName}</Text>
+        <Text style={{color: '#ffd700'}}>-----------------------------------------------------------------------------------------</Text>
         </View>
       ))
     }
     </ScrollView>
   );
 }
-
+// state = {visible : false, text : 'view full'}
 export default () => {
   const [visible, setVisible] = useState(false);
+  const [text, setText] = useState('View Full');
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView style={styles.container}>
    
-      <View style={{flex: 0.3}}>
-        <View style={{backgroundColor: '#DCDCDC'}}>
-            <Text style={{fontWeight: 'bold', fontSize: 20, lineHeight: 60, color: 'dodgerblue'}}>Running Sessions</Text>
-            <Text style={{lineHeight: 40}}>Name Of Class:     COMMUNICATIONS</Text>
-            <Text style={{lineHeight: 40}}>Description of Lecture:     PPT</Text>
-            <Text style={{lineHeight: 40}}>Time slot for this Lecture:     10:30-11:30</Text>
-            <Text style={{lineHeight: 40}}>Teacher's Name:     SINGSONG</Text>
+      <View style={{flex: 0.3, marginBottom: 20, marginTop: 20}}>
+        <View style={{backgroundColor: '#e2d810', borderRadius: 30}}>
+            <Text style={{fontWeight: 'bold', fontSize: 20, lineHeight: 30, color: 'black', padding: 10, left: 80}}>Running Sessions</Text>
+            <Text style={{lineHeight: 30}}>   Name Of Class:     COMMUNICATIONS</Text>
+            <Text style={{lineHeight: 30}}>   Description of Lecture:     PPT</Text>
+            <Text style={{lineHeight: 30}}>   Time slot for this Lecture:     10:30-11:30</Text>
+            <Text style={{lineHeight: 30}}>   Teacher's Name:     SINGSONG</Text>
         </View>
       </View>
-      <View style={{flex: 0.4}}>
-        <View>
-            <Text style={{fontWeight: 'bold', fontSize: 20, lineHeight: 100, color: 'dodgerblue'}}>Upcoming Sessions</Text>
-            <Text style={{lineHeight: 40, top: -40}}>Name Of Class:     COMMUNICATIONS</Text>
-            <Text style={{lineHeight: 40, top: -40}}>Description of Lecture:     PPT</Text>
-            <Text style={{lineHeight: 40, top: -40}}>Time slot for this Lecture:     10:30-11:30</Text>
-            <Text style={{lineHeight: 40, top: -40}}>Teacher's Name:     SINGSONG</Text>
+      <View style={{flex: 0.3}}>
+        <View style={{backgroundColor: '#00BFFF', borderRadius: 40}}>
+            <Text style={{fontWeight: 'bold', fontSize: 20, lineHeight: 100, color: 'black', top: -30, left: 90}}>Upcoming Sessions</Text>
+            <Text style={{lineHeight: 30, top: -48}}>   Name Of Class:     COMMUNICATIONS</Text>
+            <Text style={{lineHeight: 30, top: -48}}>   Description of Lecture:     PPT</Text>
+            <Text style={{lineHeight: 30, top: -48}}>   Time slot for this Lecture:     10:30-11:30</Text>
+            <Text style={{lineHeight: 30, top: -48}}>   Teacher's Name:     SINGSONG</Text>
         </View>  
         <TouchableOpacity onPress={() => {
           console.log("press ho rhi hai");
+          const t = text == 'View Full' ? 'View Less' : 'View Full';
           setVisible(!visible);
+          setText(t);
         }}>
-          <View><Text style={{color: 'green', fontWeight: 'bold'}}>View full</Text></View>
+          <View><Text style={{color: '#CF000F', fontWeight: 'bold', left: 300}}>{text}</Text></View>
         </TouchableOpacity>
       </View>
 
-      <View style={{flex: 0.3, marginTop: 100}}>{visible && handleClick()}</View>
+      <View style={{flex: 0.4, marginTop: 60}}>{visible && handleClick()}</View>
       <StatusBar style="auto" />
-    </SafeAreaView> 
+    </ScrollView> 
     
   );}
 

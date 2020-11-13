@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {AntDesign, FontAwesome} from '@expo/vector-icons';
+import {FontAwesome} from '@expo/vector-icons';
 
 import Dashboard from '../screens/Dashboard';
 import Login from '../screens/Login';
@@ -21,7 +21,6 @@ const MainStackScreens = ({navigation}) => {
         {(props) => <Tabscreens {...props} />}
         </MainStack.Screen>
         </MainStack.Navigator>
-        
     )
 }
 const Tabscreens = ({navigation}) => {
