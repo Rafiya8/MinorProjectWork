@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,29 +6,37 @@ import {
   Image,
 } from 'react-native';
 
-export default class Profile extends Component {
+const DATA = {
+  name: 'Vivek Kumar',
+  enrollmentNo: '0103CS181183',
+  collegeName: 'Lakshmi Narain College of Technology',
+  attended: 40,
+  total: 100,
+}
 
-  render() {
+export default ({navigation}) => {
+
+  
     return (
       <View style={styles.container}>
           <View style={styles.header}></View>
           <Image style={styles.avatar} source={{uri: 'https://bootdey.com/img/Content/avatar/avatar6.png'}}/>
           <View style={styles.body}>
             <View style={styles.bodyContent}>
-              <Text style={styles.name}>Vivek Kumar</Text>
-              <Text style={{fontSize: 15}}>0103CS181183</Text>
-              <Text style={styles.info}>Lakshmi Narain College of Technology</Text>
+              <Text style={styles.name}>{DATA.name}</Text>
+              <Text style={{fontSize: 15}}>{DATA.enrollmentNo}</Text>
+              <Text style={styles.info}>{DATA.collegeName}</Text>
               <Text style={styles.description}></Text>
               
-              <Text style={styles.textStyle}>Total Classes held: </Text>
-              <Text style={styles.textStyle1}>Number of classes attended: </Text>             
+              <Text style={styles.textStyle}>Total Classes held: {DATA.total}</Text>
+              <Text style={styles.textStyle1}>Number of classes attended: {DATA.attended}</Text>             
               
             </View>
         </View>
       </View>
     );
   }
-}
+
 
 const styles = StyleSheet.create({
   header:{

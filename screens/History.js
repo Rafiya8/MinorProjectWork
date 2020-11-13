@@ -133,6 +133,16 @@ export default ({navigation}) => {
                 confirmBtnText="OK"
                 cancelBtnText="Cancel"
                 onDateChange={(d) => {setDate(d)}}
+                customStyles = {{
+                    dateIcon: {
+                        backfaceVisibility: 'hidden',
+                        opacity: 0,
+                    },
+                    dateInput: {
+                        
+                    }
+                }}
+                
             />
         )
     }
@@ -173,10 +183,10 @@ export default ({navigation}) => {
                 </TouchableOpacity>
             </View>
                 {
-                    DATA.slice(0, 10).map(data => <View style={styles.box}>
+                    DATA.slice(0, 10).map((data, idx) => <View key= {idx} style={styles.box}>
                         <Text style={styles.boxDate}>{data.date}</Text>
                         {
-                            data.subjects.slice(0, 3).map(subject => <View>
+                            data.subjects.slice(0, 3).map((subject, idx2) => <View key={`${idx}-${idx2}`}>
                                 <Text style={styles.subjects}>{subject.subName}</Text>
                                 <Text style={styles.status}>{subject.subStatus}</Text>
                                 </View>)
